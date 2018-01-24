@@ -1,7 +1,6 @@
 Changes
-Conjunction.pm
+lib/Lingua/Conjunction.pm
 Makefile.PL
 MANIFEST
 README
-test.pl
-
+t/basic.t

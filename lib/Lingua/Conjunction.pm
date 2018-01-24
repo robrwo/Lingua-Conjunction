@@ -7,7 +7,7 @@ require Exporter;
 
 @ISA = qw( Exporter );
 @EXPORT = qw( conjunction );
-$VERSION = '2.00';
+$VERSION = '2.01';
 
 # Language-specific definitions (these may not be correct, and certainly
 # they are not complete... E-mail corrections and additions to the author
@@ -134,7 +134,7 @@ Lingua::Conjunction - Convert Perl lists into linguistic conjunctions
 
     # emits "Jack and Jill"
     $name_list = conjunction('Jack', 'Jill');
-  
+
     # emits "Jack, Jill, and Spot"
     $name_list = conjunction('Jack', 'Jill', 'Spot');
 
@@ -209,7 +209,7 @@ C<Locale::Language>
 The I<Perl Cookbook> in Section 4.2 has a simular subroutine called
 C<commify_series>. The different is that 1. this routine handles
 multiple languages and 2. being a module, you do not have to add
-the subroutine to a script every time you need it. 
+the subroutine to a script every time you need it.
 
 =head1 AUTHORS
 
@@ -223,6 +223,3 @@ This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
 
 =cut
-
-
-
