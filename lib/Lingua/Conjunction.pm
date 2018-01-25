@@ -10,7 +10,7 @@ use warnings;
 use Carp qw/ croak /;
 use Exporter qw/ import /;
 
-our @EXPORT = qw( conjunction );
+our @EXPORT    = qw( conjunction );
 our @EXPORT_OK = @EXPORT;
 
 our $VERSION = 'v2.1.0';
@@ -29,98 +29,90 @@ our $VERSION = 'v2.1.0';
 # con = conjunction ("and")
 # dis = disjunction ("or"), well, grammatically still a "conjunction"...
 
-my %language =
-(
- 'af' => { sep => ',', alt => ";", pen => 1, con => 'en',  dis => 'of'    },
- 'da' => { sep => ',', alt => ";", pen => 1, con => 'og',  dis => 'eller' },
- 'de' => { sep => ',', alt => ";", pen => 1, con => 'und', dis => 'oder'  },
- 'en' => { sep => ',', alt => ";", pen => 1, con => 'and', dis => 'or'    },
- 'es' => { sep => ',', alt => ";", pen => 1, con => 'y',   dis => 'o'     },
- 'fi' => { sep => ',', alt => ";", pen => 1, con => 'ja',  dis => 'tai'   },
- 'fr' => { sep => ',', alt => ";", pen => 0, con => 'et',  dis => 'ou'    },
- 'it' => { sep => ',', alt => ";", pen => 1, con => 'e',   dis => 'o'     },
- 'la' => { sep => ',', alt => ";", pen => 1, con => 'et',  dis => 'vel'   },
- 'nl' => { sep => ',', alt => ';', pen => 1, con => 'en',  dis => 'of'    },
- 'no' => { sep => ',', alt => ";", pen => 0, con => 'og',  dis => 'eller' },
- 'pt' => { sep => ',', alt => ";", pen => 1, con => 'e',   dis => 'ou'    },
- 'sw' => { sep => ',', alt => ";", pen => 1, con => 'na',  dis => 'au'    },
+my %language = (
+    'af' => { sep => ',', alt => ";", pen => 1, con => 'en',  dis => 'of' },
+    'da' => { sep => ',', alt => ";", pen => 1, con => 'og',  dis => 'eller' },
+    'de' => { sep => ',', alt => ";", pen => 1, con => 'und', dis => 'oder' },
+    'en' => { sep => ',', alt => ";", pen => 1, con => 'and', dis => 'or' },
+    'es' => { sep => ',', alt => ";", pen => 1, con => 'y',   dis => 'o' },
+    'fi' => { sep => ',', alt => ";", pen => 1, con => 'ja',  dis => 'tai' },
+    'fr' => { sep => ',', alt => ";", pen => 0, con => 'et',  dis => 'ou' },
+    'it' => { sep => ',', alt => ";", pen => 1, con => 'e',   dis => 'o' },
+    'la' => { sep => ',', alt => ";", pen => 1, con => 'et',  dis => 'vel' },
+    'nl' => { sep => ',', alt => ';', pen => 1, con => 'en',  dis => 'of' },
+    'no' => { sep => ',', alt => ";", pen => 0, con => 'og',  dis => 'eller' },
+    'pt' => { sep => ',', alt => ";", pen => 1, con => 'e',   dis => 'ou' },
+    'sw' => { sep => ',', alt => ";", pen => 1, con => 'na',  dis => 'au' },
 );
 
 # Conjunction types. Someday we'll add either..or, neither..nor
-my %types =
-(
-    'and'     => 'con',
-    'or'      => 'dis'
+my %types = (
+    'and' => 'con',
+    'or'  => 'dis'
 );
 
-my %punct     = %{$language{en}};
+my %punct     = %{ $language{en} };
 my $list_type = $types{'and'};
 
 # Lingua::Conjunction->separator( SCALAR ) - sets the separator
-sub separator
-{
+sub separator {
     $punct{sep} = $_[1];
 }
 
 # Lingua::Conjunction->separator_phrase( SCALAR ) - sets the alternate
 #   (phrase) separator
-sub separator_phrase
-{
+sub separator_phrase {
     $punct{alt} = $_[1];
 }
 
 # Lingua::Conjunction->penultimate( BOOL ) - enables/disables punultimate
 #  separator
-sub penultimate
-{
+sub penultimate {
     $punct{pen} = $_[1];
 }
 
 # Lingua::Conjunction->connector( SCALAR ) - sets a specific connector
-sub connector
-{
+sub connector {
     $punct{$list_type} = $_[1];
 }
 
 # Lingua::Conjunction->connector_type ( "and" | "or" ) - use "and" or "or"
 #  (with appropriate translation for language)
-sub connector_type
-{
-    croak "Undefined connector type \`$_[1]\'", unless ($types{$_[1]});
-    $list_type = $types{$_[1]};
+sub connector_type {
+    croak "Undefined connector type \`$_[1]\'", unless ( $types{ $_[1] } );
+    $list_type = $types{ $_[1] };
 }
 
 # Lingua::Conjunction->lang( LANG_CODE ) - sets the language to use
-sub lang
-{
+sub lang {
     my $language = $_[1] || 'en';
     croak "Undefined language \`$language\'",
-        unless (defined($language{$language}));
-    %punct = %{$language{$language}};
+      unless ( defined( $language{$language} ) );
+    %punct = %{ $language{$language} };
 }
 
-sub conjunction
-{
+sub conjunction {
     return $_[0] if @_ < 2;
     return join " $punct{$list_type} ", @_ if @_ == 2;
 
-    if ($punct{pen})
-    {
-	return join "$punct{sep} ", @_[0..$#_-1], "$punct{$list_type} $_[-1]",
-	    unless grep /$punct{sep}/, @_;
-	return join "$punct{alt} ", @_[0..$#_-1], "$punct{$list_type} $_[-1]";
+    if ( $punct{pen} ) {
+        return join "$punct{sep} ", @_[ 0 .. $#_ - 1 ],
+          "$punct{$list_type} $_[-1]",
+          unless grep /$punct{sep}/, @_;
+        return join "$punct{alt} ", @_[ 0 .. $#_ - 1 ],
+          "$punct{$list_type} $_[-1]";
     }
-    else
-    {
-	return join "$punct{sep} ", @_[0..$#_-2], "$_[-2] $punct{$list_type} $_[-1]",
-	    unless grep /$punct{sep}/, @_;
-	return join "$punct{alt} ", @_[0..$#_-2], "$_[-2] $punct{$list_type} $_[-1]";
+    else {
+        return join "$punct{sep} ", @_[ 0 .. $#_ - 2 ],
+          "$_[-2] $punct{$list_type} $_[-1]",
+          unless grep /$punct{sep}/, @_;
+        return join "$punct{alt} ", @_[ 0 .. $#_ - 2 ],
+          "$_[-2] $punct{$list_type} $_[-1]";
     }
 
 }
 
 1;
-
 
 __END__
 
