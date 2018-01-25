@@ -1,8 +1,13 @@
 Revision history for Perl extension Lingua::Conjunction.
 
-2.01
-  - Reorganised files in the release to conform to modern standards.
+{{$NEXT}}
+  [Documentation]
   - Updated the format of the Changes file.
+  - Updated the abstract and documentation.
+
+  [Toolchain]
+  - Reorganised files in the release to conform to modern standards.
+  - Use Dist::Zilla and Pod::Weaver.
 
 2.00 2003-11-16
   - Maintenance release; changed version to 2.00 after 4+ years.

@@ -1,13 +1,19 @@
 package Lingua::Conjunction;
 
+# ABSTRACT: Convert lists into simple linguistic conjunctions
+
+use v5.8;
+
 use strict;
-use vars qw($VERSION @ISA @EXPORT $AUTOLOAD);
+use warnings;
 
-require Exporter;
+use Carp qw/ croak /;
+use Exporter qw/ import /;
 
-@ISA = qw( Exporter );
-@EXPORT = qw( conjunction );
-$VERSION = '2.01';
+our @EXPORT = qw( conjunction );
+our @EXPORT_OK = @EXPORT;
+
+our $VERSION = 'v2.1.0';
 
 # Language-specific definitions (these may not be correct, and certainly
 # they are not complete... E-mail corrections and additions to the author
@@ -49,8 +55,6 @@ my %types =
 
 my %punct     = %{$language{en}};
 my $list_type = $types{'and'};
-
-use Carp;
 
 # Lingua::Conjunction->separator( SCALAR ) - sets the separator
 sub separator
@@ -120,11 +124,6 @@ sub conjunction
 
 __END__
 
-
-=head1 NAME
-
-Lingua::Conjunction - Convert Perl lists into linguistic conjunctions
-
 =head1 SYNOPSIS
 
     use Lingua::Conjunction;
@@ -190,18 +189,6 @@ is there if you want it:
 I have been told that the penultimate comma is not standard for some
 languages, such as Norwegian. Hence the defaults set in the C<%languages>.
 
-=head1 REVISION HISTORY
-
-Originally this modules was uploaded to CPAN as C<Text::List>. After some
-criticism, it was renamed.
-
-As per suggestions, other features were added.  Probably too many features
-for what amounts to a simple hack.
-
-More languages could be added, but some languages have more complex
-rules (inflections and multiple forms of 'and' depending on the
-context, etc.)
-
 =head1 SEE ALSO
 
 C<Locale::Language>
@@ -210,16 +197,5 @@ The I<Perl Cookbook> in Section 4.2 has a simular subroutine called
 C<commify_series>. The different is that 1. this routine handles
 multiple languages and 2. being a module, you do not have to add
 the subroutine to a script every time you need it.
-
-=head1 AUTHORS
-
-Robert Rothenberg <rrwo@cpan.org>
-
-Damian Conway <damian@csse.monash.edu.au>
-
-=head1 LICENSE
-
-This program is free software; you can redistribute it and/or
-modify it under the same terms as Perl itself.
 
 =cut
