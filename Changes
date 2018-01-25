@@ -8,6 +8,7 @@ Revision history for Perl extension Lingua::Conjunction.
   [Toolchain]
   - Reorganised files in the release to conform to modern standards.
   - Use Dist::Zilla and Pod::Weaver.
+  - Use tuple version.
 
   [Other Changes]
   - Perltidied the source code.
