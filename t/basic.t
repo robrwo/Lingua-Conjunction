@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More; 
+use Test::More;
 
 use_ok('Lingua::Conjunction', '2.00');
 
@@ -18,4 +18,3 @@ ok( "A or C" eq conjunction( qw( A C ) ) );
 ok( "A, B, or C" eq conjunction( qw( A B C ) ) );
 
 done_testing;
-

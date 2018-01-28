@@ -12,6 +12,7 @@ Revision history for Perl extension Lingua::Conjunction.
 
   [Other Changes]
   - Perltidied the source code.
+  - Removed Windows line endings.
 
 2.00 2003-11-16
   - Maintenance release; changed version to 2.00 after 4+ years.
