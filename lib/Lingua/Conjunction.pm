@@ -13,7 +13,7 @@ use Exporter qw/ import /;
 our @EXPORT    = qw( conjunction );
 our @EXPORT_OK = @EXPORT;
 
-our $VERSION = 'v2.1.0';
+our $VERSION = 'v2.1.1';
 
 # Language-specific definitions (these may not be correct, and certainly
 # they are not complete... E-mail corrections and additions to the author

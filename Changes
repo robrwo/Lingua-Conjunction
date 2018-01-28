@@ -1,6 +1,8 @@
 Revision history for Perl extension Lingua::Conjunction.
 
 {{$NEXT}}
+
+v2.1.0    2018-01-28 21:38:27+00:00 Europe/London
   [Documentation]
   - Updated the format of the Changes file.
   - Updated the abstract and documentation.
