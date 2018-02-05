@@ -186,7 +186,7 @@ languages, such as Norwegian. Hence the defaults set in the C<%languages>.
 C<Locale::Language>
 
 The I<Perl Cookbook> in Section 4.2 has a simular subroutine called
-C<commify_series>. The different is that 1. this routine handles
+C<commify_series>. The difference is that 1. this routine handles
 multiple languages and 2. being a module, you do not have to add
 the subroutine to a script every time you need it.
 
