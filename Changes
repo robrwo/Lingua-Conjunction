@@ -1,6 +1,11 @@
 Revision history for Perl extension Lingua::Conjunction.
 
 {{$NEXT}}
+  [Tests]
+  - Fixed failing test on Perl 5.8.
+
+  [Documentation]
+  - Removed Windows newlines from the Changes file.
 
 v2.1.0    2018-01-28 21:38:27+00:00 Europe/London
   [Documentation]
