@@ -1,6 +1,8 @@
 Revision history for Perl extension Lingua::Conjunction.
 
 {{$NEXT}}
+  [Documentation]
+  - Added INSTALL file to the distribution.
 
 v2.1.2    2018-02-05 17:41:31+00:00 Europe/London
   [Documentation]
