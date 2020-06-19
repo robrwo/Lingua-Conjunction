@@ -37,6 +37,7 @@ my %language = (
     'es' => { sep => ',', alt => ";", pen => 1, con => 'y',   dis => 'o' },
     'fi' => { sep => ',', alt => ";", pen => 1, con => 'ja',  dis => 'tai' },
     'fr' => { sep => ',', alt => ";", pen => 0, con => 'et',  dis => 'ou' },
+    'id' => { sep => ',', alt => ";", pen => 1, con => 'dan', dis => 'atau' },
     'it' => { sep => ',', alt => ";", pen => 1, con => 'e',   dis => 'o' },
     'la' => { sep => ',', alt => ";", pen => 1, con => 'et',  dis => 'vel' },
     'nl' => { sep => ',', alt => ';', pen => 1, con => 'en',  dis => 'of' },
