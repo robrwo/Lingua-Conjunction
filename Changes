@@ -1,6 +1,9 @@
 Revision history for Perl extension Lingua::Conjunction.
 
 {{$NEXT}}
+  [Enhancements]
+  - Add Indonesian (Ade Ishs)
+
   [Documentation]
   - Added INSTALL file to the distribution.
 
