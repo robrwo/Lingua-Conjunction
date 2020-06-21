@@ -109,9 +109,10 @@ feature.
 - Robert Rothenberg <rrwo@cpan.org>
 - Damian Conway <damian@conway.org>
 
-# CONTRIBUTOR
+# CONTRIBUTORS
 
-Mohammad S Anwar <mohammad.anwar@yahoo.com>
+- Ade Ishs <adeishs@cpan.org>
+- Mohammad S Anwar <mohammad.anwar@yahoo.com>
 
 # COPYRIGHT AND LICENSE
 
