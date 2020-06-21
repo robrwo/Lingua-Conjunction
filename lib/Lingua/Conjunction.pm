@@ -152,9 +152,20 @@ calling the appropriate subroutine:
     Lingua::Conjunction->lang('en');   # use 'and' (default)
     Lingua::Conjunction->lang('es');   # use 'y'
 
-Supported languages in this version are English, Spanish, French, Italian,
-German, Portuguese, Norwegian, Danish, Dutch, Afrikaans, Swahili, and Latin.
-(Klingon is intentionally not supported.)
+Supported languages in this version are
+Afrikaans,
+Danish,
+Dutch,
+English,
+French,
+German,
+Indonesian,
+Italian,
+Latin,
+Norwegian,
+Portuguese,
+Spanish,
+and Swahili.
 
 You can also set connectives individually:
 
